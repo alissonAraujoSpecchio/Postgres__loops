@@ -27,10 +27,17 @@ END;
 ```
 
 ## Loop in jsonb and jsonb[] (jsonb array)
-It works in json and json[] too, just use json_array_length instead of jsonb_array_length.
+It works in json and json[] too, just use json instead of jsonb in the functions.
 
 ```sql
-FOR i IN 0..jsonb_array_length(v_json)-1 LOOP
-    raise notice '%', v_json->i;
-END LOOP;
+DECLARE
+    v_json jsonb;
+BEGIN
+    SELECT jsonb_agg(column) INTO v_json FROM table WHERE condition;
+    FOR i IN 0..jsonb_array_length(v_json)-1 LOOP
+        raise notice '%', v_json->i;
+    END LOOP;
+END;
 ```
+_Obs: Jsonb_agg creates a jsonb[]_
+
