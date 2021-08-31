@@ -26,8 +26,8 @@ BEGIN
 END;
 ```
 
-## Loop in jsonb and jsonb[] (jsonb array)
-It works in json and json[] too, just use json instead of jsonb in the functions.
+## Loop in jsonb[] (jsonb array)
+It works in json[] too, just use json instead of jsonb in the functions.
 
 ```sql
 DECLARE
