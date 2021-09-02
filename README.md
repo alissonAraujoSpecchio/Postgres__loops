@@ -42,7 +42,7 @@ END;
 _Obs: Jsonb_agg creates a jsonb[]_
 
 ## Loop in a select
-```
+```sql
 DECLARE
     v_row RECORD;
 BEGIN
